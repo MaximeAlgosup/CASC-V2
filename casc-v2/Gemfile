@@ -67,3 +67,7 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.5"
+
+gem "cancancan", "~> 3.5"
+
+gem "mysql2", "~> 0.5.6"
