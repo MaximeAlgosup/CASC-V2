@@ -1,69 +1,72 @@
-*.rbc
-capybara-*.html
-.rspec
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/db/*.sqlite3-[0-9]*
-/public/system
-/coverage/
-/spec/tmp
-*.orig
-rerun.txt
-pickle-email-*.html
+casc-v2/*.rbc
+casc-v2/capybara-*.html
+casc-v2/.rspec
+casc-v2/db/*.sqlite3
+casc-v2/db/*.sqlite3-journal
+casc-v2/db/*.sqlite3-[0-9]*
+casc-v2/public/system
+casc-v2/coverage/
+casc-v2/spec/tmp
+casc-v2/*.orig
+casc-v2/rerun.txt
+casc-v2/pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+casc-v2/log/*
+casc-v2/tmp/*
+!casc-v2/log/.keep
+!casc-v2/tmp/.keep
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
-config/master.key
+casc-v2/config/initializers/secret_token.rb
+casc-v2/config/master.key
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
 
 # dotenv, dotenv-rails
 # TODO Comment out these rules if environment variables can be committed
-.env
-.env*.local
+casc-v2/.env
+casc-v2/.env*.local
 
 ## Environment normalization:
-/.bundle
-/vendor/bundle
+casc-v2/.bundle
+casc-v2/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+casc-v2/.rvmrc
 
 # if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
-*.bowerrc
-bower.json
+casc-v2/vendor/assets/bower_components
+casc-v2/*.bowerrc
+casc-v2/bower.json
 
 # Ignore pow environment settings
-.powenv
+casc-v2/.powenv
 
 # Ignore Byebug command history file.
-.byebug_history
+casc-v2/.byebug_history
 
 # Ignore node_modules
-node_modules/
+casc-v2/node_modules/
 
 # Ignore precompiled javascript packs
-/public/packs
-/public/packs-test
-/public/assets
+casc-v2/public/packs
+casc-v2/public/packs-test
+casc-v2/public/assets
 
 # Ignore yarn files
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
+casc-v2/yarn-error.log
+casc-v2/yarn-debug.log*
+casc-v2/.yarn-integrity
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
-/public/uploads
+casc-v2/storage/*
+!casc-v2/storage/.keep
+casc-v2/public/uploads\
+
+# Bin files
+casc-v2/bin/*
