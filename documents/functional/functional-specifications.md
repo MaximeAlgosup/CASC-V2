@@ -1,4 +1,4 @@
-# Functional Specifications - Coding Dojo
+# Functional Specifications - CASC
 
 ## Document Control
 **Document Information:**
@@ -6,8 +6,8 @@
 | --- | --- |
 | Document Owner | Maxime CARON |
 | Creation Date | 2024-03-17 |
-| Last Updated | 2024-03-18 |
-| Document Name | Functional Specifications - Coding Dojo |
+| Last Updated | 2024-05-04 |
+| Document Name | Functional Specifications - CASC |
 
 **Version History:**
 | Version | Date | Author | Description |
@@ -15,6 +15,7 @@
 | 0.1 | 2024-03-17 | Maxime CARON | Initial draft |
 | 1.0 | 2024-03-18 | Maxime CARON | First finished version |
 | 1.1 | 2024-03-24 | Maxime CARON | Correct summary |
+| 1.2 | 2024-05-04 | Maxime CARON | Adapt document to the new version of the project |
 
 
 ## Summary
@@ -22,7 +23,7 @@
 
 <summary>Click to expand!</summary>
 
-- [Functional Specifications - Coding Dojo](#functional-specifications---coding-dojo)
+- [Functional Specifications - CASC](#functional-specifications---casc)
   - [Document Control](#document-control)
   - [Summary](#summary)
   - [Overview](#overview)
@@ -53,7 +54,7 @@
 </details>
 
 ## Overview
-Every day, new people try to discover the world of programming, and every day, some of them are confronted with a similar problem. They can learn the basics, but they have trouble learning the algorithms. That's why this project exists. This project is a web application designed to help new developers acquire increased programming skills. With exercises and lessons provided, beginners will be capable of entering the world of algorithms step by step.
+Every day, new people try to discover the world of programming, and every day, some of them are confronted with a similar problem. They can learn the basics, but they have trouble learning the algorithms. That's why this project exists. This project is a web application designed to help new developers acquire and increased their programming skills. With exercises and lessons provided, beginners will be capable of entering the world of algorithms step by step.
 
 ### Scope
 This project aims to help people progress in algorithmic concepts and acquire new programming skills, but also to help them evaluate their current skills.
