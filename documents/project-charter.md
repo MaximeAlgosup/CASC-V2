@@ -1,12 +1,12 @@
-# Project Charter - Coding Dojo
+# Project Charter - CASC
 ## Document Control
 **Document Informations:**
 |  | Information |
 | --- | --- |
 | Document Owner | Maxime CARON |
 | Creation Date | 2024-03-17 |
-| Last Updated | 2024-03-17 |
-| Document Name | Project Charter - Coding Dojo |
+| Last Updated | 2024-05-04 |
+| Document Name | Project Charter - CASC |
 
 ---
 **Version History:**
@@ -15,6 +15,7 @@
 | --- | --- | --- | --- |
 | 0.1 | 2024-03-17 | Maxime CARON | Initial draft |
 | 1.0 | 2024-03-17 | Maxime CARON | Final version |
+| 1.1 | 2024-05-04 | Maxime CARON | Change project name |
 
 
 ## Summary
@@ -22,7 +23,7 @@
 
 <summary>Click to expand!</summary>
 
-- [Project Charter - Coding Dojo](#project-charter---coding-dojo)
+- [Project Charter - CASC](#project-charter---casc)
   - [Document Control](#document-control)
   - [Summary](#summary)
   - [Project Overview](#project-overview)
@@ -43,7 +44,7 @@
 </details>
 
 ## Project Overview
-Every day, new people try to discover the world of programming, and every day, some of them are confronted with a similar problem. They can learn the basics, but they have trouble learning the algorithms. That's why this project exists. This project is a web application designed to help new developers acquire increased programming skills. With exercises and lessons provided, beginners will be capable of entering the world of algorithms step by step.
+Every day, new people try to discover the world of programming, and every day, some of them are confronted with a similar problem. They can learn the basics, but they have trouble learning the algorithms. That's why this project exists. This project is a web application designed to help new developers acquire and increased their programming skills. With exercises and lessons provided, beginners will be capable of entering the world of algorithms step by step.
 
 ## Project Goals
 To achieve these goals, this project will focus on the following tasks:
