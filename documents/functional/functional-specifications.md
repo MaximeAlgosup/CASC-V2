@@ -175,7 +175,7 @@ The app will contain the following pages:
 | Challenge | The challenge page will contain the challenge. | - Rules and documentation<br>- Exercise<br>- Comments |
 
 ---
-You will find the mockups of the app [here](../graphic-charter/mockups.png)
+You will find the mockups of the app [here](../appendix/mockups.png)
 
 ## Main features
 

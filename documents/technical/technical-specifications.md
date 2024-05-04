@@ -1,4 +1,4 @@
-# Technical Specifications - Coding Dojo
+# Technical Specifications - CASC
 ## Document Control
 
 **Document Information:**
@@ -6,27 +6,41 @@
 | --- | --- |
 | Document Owner | Maxime CARON |
 | Creation Date | 2024-03-24 |
-| Last Updated | 2024-03-26 |
-| Document Name | Technical Specifications - Coding Dojo |
+| Last Updated | 2024-05-04 |
+| Document Name | Technical Specifications - CASC |
 
 **Version History:**
 | Version | Date | Author | Description |
 | --- | --- | --- | --- |
 | 0.1 | 2024-03-24 | Maxime CARON | Initial draft |
-
+| 0.2 | 2024-05-04 | Maxime CARON | Update structure and texts |
 ## Summary
 <details>
 <summary>Click to expand!</summary>
 
-- [Technical Specifications - Coding Dojo](#technical-specifications---coding-dojo)
+- [Technical Specifications - CASC](#technical-specifications---casc)
   - [Document Control](#document-control)
   - [Summary](#summary)
-  - [Overview](#overview)
-    - [Project](#project)
-  - [Architecture](#architecture)
-    - [Server](#server)
-    - [Database](#database)
-    - [App](#app)
+  - [Background Information](#background-information)
+    - [Project Scope](#project-scope)
+    - [Services](#services)
+  - [Server Specifications](#server-specifications)
+    - [Hardware](#hardware)
+    - [Software](#software)
+  - [Database](#database)
+    - [Data model](#data-model)
+    - [Syncronization with the server](#syncronization-with-the-server)
+    - [Migration between versions](#migration-between-versions)
+    - [Backup](#backup)
+  - [App](#app)
+    - [Frontend](#frontend)
+    - [Code Compilation and Execution](#code-compilation-and-execution)
+    - [Administration](#administration)
+      - [**Admin:**](#admin)
+      - [**Moderator:**](#moderator)
+    - [Authentication](#authentication)
+      - [**ALGOSUP Students:**](#algosup-students)
+      - [**Other Users:**](#other-users)
   - [Exercises](#exercises)
     - [Code Correction](#code-correction)
     - [Server Code](#server-code)
@@ -41,34 +55,96 @@
 
 </details>
 
-## Overview
+## Background Information
+As a student at ALGOSUP school, I've observed that many new students struggle with understanding fundamental programming concepts such as algorithms, modularity, and classes. Fortunately, as part of my cursus, I am required to imaginate and realize a project. In response to this need, I have conceptualized CASC, a web application aimed at assisting novice developers in acquiring and improving their programming skills. Through a curated selection of exercises and lessons, beginners will be guided into the world of algorithms.
 
-This document aims to provide a technical overview of the Coding Dojo project.
 
-### Project
+### Project Scope
+CASC is a web application designed to support new developers acquire and increase their programming skills. By offering a diverse range of exercises and accompanying documentation, users will gain proficiency in essential algorithmic concepts. 
 
-Every day, new people try to discover the world of programming, and every day, some of them are confronted with a similar problem. They can learn the basics, but they have trouble learning the algorithms. That's why this project exists. This project is a web application designed to help new developers acquire increased programming skills. With exercises and lessons provided, beginners will be capable of entering the world of algorithms step by step.
+These exercises will be categorized into different types:
+- Code Correction:
+  - Users will be presented with code containing errors that they must identify and rectify. Upon successful correction, users can execute the code and view the output. Validation is confirmed by a code flag.
+- Server Code:
+  - In this exercise type, users will engage with a server via a REST API. Users will receive data from the server and must submit a response. Successful completion and validation result in the display of a confirmation flag.
+- Code Upload:
+  - Users will be tasked with uploading a piece of code to be executed within a restricted environment. Validation occurs upon passing all tests specified for the code, confirming the exercise's completion.
 
-## Architecture
+### Services
 
-The application will be divided into three main parts: 
-- The server
-- The database
-- The app.
+The project will be segmented into three core services:
 
-### Server
+- Server:
+  - This service will serve as the hosting platform for both the application and the database.
+- Database:
+  - Responsible for storing all application-related data, this service forms the backbone of CASC's information management.
+- App:
+  - The web application interface where users will engage with CASC's features and content.
 
-**Hardware:**<br>
-The server hardware is a virtual machine with a Intel core i5-6300HQ processor, 32 GB of RAM, and 2TB of storage.
+## Server Specifications
 
-**Software:**<br>
-The server operating system is Linux server. It is a family of open-source Unix-like operating systems based on the Linux kernel. The server will host the application and the database. It will also be used to host the Kubernetes cluster, and Docker containers.
+### Hardware
+Server is a virtual machine working on a physical server. The server will have the following hardware specifications:
+- CPU: i5-6300HQ
+- RAM: 32 GB
+- Storage: 2 TB SSD
 
-### Database
-The database is MySQL. It is a relational database management system based on SQL – Structured Query Language. The application will use it to store and manage data.
+### Software
+The server runs on the Linux operating system, a versatile family of open-source Unix-like platforms renowned for their stability and security. The server will serve as the primary hosting environment for the CCAC's application and database components. In addition, it will facilitate the deployment and orchestration of a Kubernetes cluster, enabling seamless scaling and management of containerized workloads. In addition, the server will play a central role in the operation of Docker containers, enabling efficient encapsulation and deployment of application services in isolated environments.
 
-### App
-The application is a web application. It will be developed with Go with Beego framework.
+## Database
+CASC will utilize MariaDB, a renowned open-source relational database system developed by the creators of MySQL.
+
+### Data model
+The initial database model for the first version of CASC is this one:
+
+<img src="./pictures/db_casc.png" height="500" alt="Database schema" style="display: block; margin-left: auto; margin-right: auto"></img>
+
+See bigger [here](../appendix/DB_CASC.pdf).
+
+This model serves as the foundation for structuring and organizing the application's data entities and relationships.
+
+### Syncronization with the server
+Database synchronization will be seamlessly facilitated through Active Record, the Object-Relational Mapping (ORM) framework integrated within the Ruby on Rails framework. Using Active Record, CASC will interact with the database without the need for direct SQL queries, simplifying data management operations and enhancing developer productivity.
+
+### Migration between versions
+Ensuring the seamless evolution of the database schema, CASC will employ Active Record migrations for version-to-version database schema transitions. Active Record migrations provide a standardized and reliable mechanism for altering the database structure while maintaining data integrity. In the event of a rollback scenario, Active Record empowers CASC to revert to a previous database schema version swiftly and efficiently
+
+### Backup
+
+To mitigate the risk of data loss, CASC employs a comprehensive backup strategy. Regular backups of the database are scheduled to occur every two weeks. Using the capabilities of Docker, these backups are efficiently created, capturing the state of the database at specific points in time.
+
+The backup files are securely stored on a separate, dedicated server, ensuring data availability even in the face of hardware failures or unexpected disruptions. This separation of storage locations enhances the resilience of CASC's data infrastructure, safeguarding against potential loss or corruption.
+
+By implementing robust backup procedures, CASC demonstrates a steadfast commitment to preserving data integrity and resilience. These measures not only enhance the reliability of the application but also instill confidence in users regarding the safety and security of their data.
+
+Every backup will be stored for 2 months.
+
+## App
+CASC is designed as a dynamic web application that provides an intuitive and interactive platform for users to engage with its educational content. Leveraging the power and flexibility of the Ruby on Rails framework, the application is poised to deliver a seamless user experience.
+
+### Frontend
+CASC adopts the modern and versatile Tailwind CSS framework for frontend development. By harnessing Tailwind CSS's utility-first approach, the application achieves a sleek, responsive, and visually captivating user interface, enhancing user engagement and navigation efficiency.
+
+### Code Compilation and Execution
+In CASC, code compilation and execution are seamlessly orchestrated within a virtualized environment powered by nanovms nanos. Leveraging nanovms nanos, code execution is performed securely and efficiently within isolated virtual machines, ensuring robustness and stability across diverse programming exercises and scenarios.
+
+### Administration
+#### **Admin:**
+The application features an admin interface tailored for comprehensive management of exercises, documentation, and user accounts. Administrators possess the authority to create, update, and delete exercises and documentation. Additionally, they hold the privilege to manage user accounts, overseeing user access and permissions within the system.
+
+#### **Moderator:**
+In addition to administrators, the application grants moderator privileges to designated users. Moderators wield similar capabilities to administrators, enabling them to oversee and maintain the integrity of exercises, documentation, and user interactions within the platform.
+
+### Authentication
+Authentication within CASC is tailored to cater to the diverse needs of its user base:
+
+#### **ALGOSUP Students:**
+Students enrolled at ALGOSUP are authenticated via their institutional email addresses. Upon authentication, they gain access to exclusive rewards and events, tailored to augment their learning journey and incentivize engagement with the platform.
+
+#### **Other Users:**
+For users beyond the ALGOSUP student community, access to exercises is granted upon successful authentication. However, access to exclusive rewards is restricted, ensuring equitable access to educational resources while preserving the integrity of the rewards system.
+
 
 ## Exercises
 The application will contain exercises to help users learn algorithmic concepts. The exercises will be divided into different type:
