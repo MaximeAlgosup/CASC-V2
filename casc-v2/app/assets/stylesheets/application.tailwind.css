@@ -2,12 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@layer base{ 
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  @font-face {
+    font-family: 'Ubuntu';
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url("Ubuntu-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: 'Heebo';
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url("Heebo-ExtraBold-BF643752536fbe3.ttf");
+  }
+
+  @font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("Heebo-Regular-BF64375253d0b7c.ttf"); 
+  }
+
+  @font-face {
+    font-family: 'UbuntuMono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("UbuntuMono-Regular.ttf");
+  }
+
+  h1 {
+    font-family: 'Ubuntu', system-ui;
+    font-style: bold;
+    font-size: 60px;
+    color: #fafafa;
+  }
+
+  h2 {
+    font-family: 'Heebo';
+    font-style: bold;
+    font-size: 40px;
+    color: #fafafa;
+  }
+
+  h3 {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-size: 20px;
+    color: #3fa793;
+  }
+
+  body {
+    font-family: 'UbuntuMono';
+    font-style: normal;
+    font-size: 16px;
+    color: #7E8E9F;
+    background-color: #141a21;
+  }
+
+  .navbar {
+    background-color: #1b252d;
+    height: 65px;
+    width: 100%;
   }
 }
-
-*/

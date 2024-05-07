@@ -67,3 +67,6 @@ casc-v2/.yarn-integrity
 casc-v2/storage/*
 !casc-v2/storage/.keep
 casc-v2/public/uploads
+
+# Igniore local dev runner
+casc-v2/run.sh
