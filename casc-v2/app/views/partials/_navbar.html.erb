@@ -1,16 +1,25 @@
 
 
-<nav class="navbar opacity-75 rounded-bl-xl rounded-br-xl mb-2">
-    <div class="flex justify-between items-center">
-      <div class="flex space-x-4">
-        <div class="flex flex-shrink-0 items-center">
-          <a href="/">
-            <img class="h-12 w-auto pl-7 pr-7" src="<%= image_url('logo.png')%>" alt="Logo Casc">
-          </a>
-        </div>
+<nav class="navbar">
+  <a href="/"><%= image_tag('logo.svg', alt: 'Logo Casc', class: 'logo') %></a>
+  <div class="slogan">Dev</div>
+  <div class="nav-links p-2">
+    <div class="dropdown">
+      <button class="dropbtn p-2 .divide-gray-100">Challenges</button>
+      <div class="dropdown-content">
+        <a href="#">Chall 1</a>
+        <a href="#">Chall 2</a>
+        <a href="#">Chall 3</a>
       </div>
-      <div class="flex space-x-4">
-        <a href="/users" class="text-gray-900 dark:text-gray-100 text-lg font-semibold p-3">Users</a>
-      </div>    
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn p-2">Events</button>
+      <div class="dropdown-content">
+        <a href="#">Event 1</a>
+        <a href="#">Event 2</a>
+        <a href="#">Event 3</a>
+      </div>
+    </div>
+  </div>
 </nav>
   

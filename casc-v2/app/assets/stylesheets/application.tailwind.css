@@ -66,8 +66,79 @@
   }
 
   .navbar {
+    color: #fafafa;
     background-color: #1b252d;
     height: 65px;
     width: 100%;
+    border-radius: 0 0 20px 20px;
+    display: inline-flex;
+  }
+
+  .logo {
+    height: 100%;
+  }
+
+  .slogan {
+    font-family: 'Ubuntu';
+    font-style: bold;
+    font-size: 40px;
+    color: #4ff8d2;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-left: 20px;
+  }
+
+  .nav-links {
+    display: inline-flex;
+    margin-left: auto; 
+    margin-right: 20px;
+  }
+
+  /* Dropdown Button */
+  .dropbtn {
+    border: 2px solid #2d3844;
+    border-radius: 10px;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    z-index: 1;
+    background-color: #1b252d;
+    border: 2px solid #2d3844;
+    border-radius: 10px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #fafafa;
+    color: #1b252d;
+    border-radius: 10px;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #fafafa;
+    color: #1b252d;
+    border-radius: 10px;
   }
 }
