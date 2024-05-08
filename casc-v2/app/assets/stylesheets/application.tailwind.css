@@ -285,16 +285,33 @@
     color: #b6ffe5;
   }
 
+  .alert {
+    width: 98%;
+  }
+
   .error-msg {
     color: #ff0000;
-    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
     text-align: left;
+    background-color: #fa9090;
+    border: 1px solid #ff0000;
+    border-radius: 10px;
+  }
+
+  .notice {
+    width: 98%;
   }
 
   .warning-msg {
-    color: #ff9900;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 10px;
+    color: #008100;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    text-align: left;
+    background-color: #a8c587;
+    border: 1px solid #008100;
+    border-radius: 10px;
   }
 }
