@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>CascV2</title>
+    <title>CASC</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,14 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <%= render "partials/navbar" %>
+    <main>
+      <% if notice %>
+        <p class="notice warning-msg"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert error-msg"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </main>
   </body>

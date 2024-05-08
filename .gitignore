@@ -66,6 +66,7 @@ casc-v2/.yarn-integrity
 # Ignore uploaded files in development
 casc-v2/storage/*
 !casc-v2/storage/.keep
-casc-v2/public/uploads\
+casc-v2/public/uploads
 
+# Ignore local dev runner
 casc-v2/run.sh
