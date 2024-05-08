@@ -1,0 +1,43 @@
+<div class="form-panel">
+  <div class="form-panel-header">
+    <img class="panel-logo-h1" src="<%= asset_path('logo.svg') %>" alt="CASC Logo">
+    <span class="panel-title-h1">CASC</span>
+  </div>
+  <hr class="form-panel-divider">
+  <div class="form-panel-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions submit-btn">
+        <%= f.submit "Sign up" %>
+      </div>
+      
+      <div class="form-panel-options">
+        <p><%= link_to "Login", new_session_path(resource_name) %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
