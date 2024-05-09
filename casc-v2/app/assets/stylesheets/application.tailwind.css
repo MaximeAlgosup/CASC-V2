@@ -73,6 +73,17 @@
     background-color: #141a21;
   }
 
+  .footer {
+    background-color: #1b252d;
+    border: 2px solid #2d3844;
+    border-radius: 20px 20px 0 0;
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px -30px 20px #141a21;
+  }
+
   .navbar {
     color: #fafafa;
     background-color: #1b252d;
@@ -80,7 +91,10 @@
     width: 100%;
     border-radius: 0 0 20px 20px;
     border: 2px solid #2d3844;
+    position: fixed;
+    top: 0;
     display: inline-flex;
+    box-shadow: 0px 30px 20px #141a21;
   }
 
   .logo {
@@ -107,6 +121,7 @@
   .dropbtn {
     border: 2px solid #2d3844;
     border-radius: 10px;
+    width: 150px;
   }
   
   /* The container <div> - needed to position the dropdown content */
@@ -283,6 +298,14 @@
 
   .form-panel-options:hover {
     color: #b6ffe5;
+  }
+
+  .panel {
+    background-color: #1b252d;
+    border: 2px solid #2d3844;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
   }
 
   .alert {
