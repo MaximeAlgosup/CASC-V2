@@ -9,7 +9,7 @@ default: &default
   encoding: utf8
   database: CascV2Dev
   username: "root"
-  password: EPM2000Perfect1050
+  password: EMP2000Perfect1050
   host: localhost
 
 development:

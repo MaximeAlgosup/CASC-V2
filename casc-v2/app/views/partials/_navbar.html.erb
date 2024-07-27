@@ -27,11 +27,10 @@
       </div>
       <div class="dropdown">
         <button class="dropbtn p-2">Profile</button>
-        <div class="dropdown-content">
-          <a href="#">Edit Profile</a>
-          <a href="#">Change Password</a>
-          <span><%= link_to "Log out", destroy_user_session_path, method: :get %></span>
-        </div>
+        <ul class="dropdown-content">
+          <li><%= link_to "User Profile", user_path(current_user) %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :get %></li>
+        </ul>
       </div>
     </div>
   <%end %>
