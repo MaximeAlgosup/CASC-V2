@@ -9,11 +9,15 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag 'favicon.ico' %> 
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application' %>
+    <%= vite_stylesheet_tag 'application' %>
+  
+
   </head>
 
   <body>
-    <%= render "partials/navbar" %>
-    <main>
+        <main>
       <% if notice %>
         <p class="notice warning-msg"><%= notice %></p>
       <% end %>
@@ -22,6 +26,8 @@
       <% end %>
       <%= yield %>
     </main>
+    <% if user_signed_in? %>
     <%= render "partials/footer" %>
+    <%end%>
   </body>
 </html>
