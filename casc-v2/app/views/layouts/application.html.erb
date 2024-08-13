@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag 'favicon.ico' %> 
     <%= vite_client_tag %>
@@ -17,7 +16,7 @@
   </head>
 
   <body>
-        <main>
+    <main>
       <% if notice %>
         <p class="notice warning-msg"><%= notice %></p>
       <% end %>
@@ -27,7 +26,7 @@
       <%= yield %>
     </main>
     <% if user_signed_in? %>
-    <%= render "partials/footer" %>
+      <%= render "partials/footer" %>
     <%end%>
   </body>
 </html>

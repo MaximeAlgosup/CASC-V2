@@ -3,73 +3,109 @@
 @tailwind utilities;
 
 @layer base{ 
+  :root {
+    --text-white: #fafafa;
+    --base-bg-color: #141A21;
+    --highlight-bg-color: #182028;
+    --highlight-bg-color-accent: #293945;
+    --ghost-grey: #1B252D;
+    --contour-grey: #2D3844;
+    --action-green: #4FF8D2;
+    --text-green: #B6FFE5;
+    --hover-green: #3FA793;
+    --secondary-green: #3D7663;
+    --accent-black: #0A0A0A;
+
+  }
+
 
   @font-face {
-    font-family: 'Ubuntu';
-    font-style: bold;
-    font-weight: 700;
-    font-display: swap;
-    src: url("Ubuntu-Bold.ttf");
-  }
+      font-family: 'Ubuntu';
+      font-style: bold;
+      font-weight: 700;
+      font-display: swap;
+      src: url("Ubuntu-Bold.ttf");
+    }
+  
+    @font-face {
+      font-family: 'Heebo';
+      font-style: bold;
+      font-weight: 700;
+      font-display: swap;
+      src: url("Heebo-ExtraBold-BF643752536fbe3.ttf");
+    }
+  
+    @font-face {
+      font-family: 'Heebo';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("Heebo-Regular-BF64375253d0b7c.ttf"); 
+    }
+  
+    @font-face {
+      font-family: 'UbuntuMono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("UbuntuMono-Regular.ttf");
+    }
+  
+    @font-face {
+      font-family: 'Meltmino';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("Meltmino-SemiBold.ttf");
+    }
+  
+    .white-text {
+      color: var(--text-white) !important;
+    }
 
-  @font-face {
-    font-family: 'Heebo';
-    font-style: bold;
-    font-weight: 700;
-    font-display: swap;
-    src: url("Heebo-ExtraBold-BF643752536fbe3.ttf");
-  }
+    .green-text {
+      color: var(--text-green) !important;
+    }
 
-  @font-face {
-    font-family: 'Heebo';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("Heebo-Regular-BF64375253d0b7c.ttf"); 
-  }
+    .border-regular {
+      border-color: var(--contour-grey) !important;
+    }
 
-  @font-face {
-    font-family: 'UbuntuMono';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("UbuntuMono-Regular.ttf");
-  }
+    .bg-regular {
+      background-color: var(--base-bg-color) !important;
+    }
 
-  @font-face {
-    font-family: 'Meltmino';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("Meltmino-SemiBold.ttf");
-  }
+    .highlight-bg {
+      background-color: var(--highlight-bg-color) !important;
+    }
 
-  h1 {
-    font-family: 'Ubuntu', system-ui;
-    font-style: bold;
-    font-size: 60px;
-    color: #fafafa;
-  }
+    .highlight-bg-accent {
+      background-color: var(--highlight-bg-color-accent) !important;
+    }
 
-  h2 {
-    font-family: 'Heebo';
-    font-style: bold;
-    font-size: 40px;
-    color: #fafafa;
-  }
+    h1 {
+      font-family: 'Ubuntu', system-ui;
+      font-style: bold;
+    }
+  
+    h2 {
+      font-family: 'Heebo';
+      font-style: bold;
+    }
+  
+    h3 {
+      font-family: 'Heebo';
+      font-style: normal;
+    }
+  
+    p {
+      font-family: 'Heebo';
+      font-style: normal;
+    }
 
-  h3 {
-    font-family: 'Heebo';
-    font-style: normal;
-    font-size: 20px;
-    color: #3fa793;
+    body {
+      font-family: 'UbuntuMono';
+      font-style: normal;
+      background-color: var(--base-bg-color);
+    }
   }
-
-  body {
-    font-family: 'UbuntuMono';
-    font-style: normal;
-    font-size: 16px;
-    color: #7E8E9F;
-    background-color: #141a21;
-  }
-}
