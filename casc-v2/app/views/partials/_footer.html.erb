@@ -21,8 +21,13 @@
         <a href="/" class=" h-fit w-fit my-auto mx-2">
             <div title="Events" class="bg-[url('/assets/icons/calendar-w.png')] hover:bg-[url('/assets/icons/calendar-g.png')] bg-cover w-9 h-9 p-2"></div>
         </a>
-        <a href="/" class=" h-fit w-fit my-auto mx-2">
+        <a href="/users/<%=current_user.id%>" class=" h-fit w-fit my-auto mx-2">
             <div title="Your profile" class="bg-[url('/assets/icons/profile-w.png')] hover:bg-[url('/assets/icons/profile-g.png')] bg-cover w-9 h-9 p-2"></div>
         </a>
+        <% if current_user.isAdmin? %>
+            <a href="/" class=" h-fit w-fit my-auto mx-2">
+                <div title="Administrator page" class="bg-[url('/assets/icons/admin-r.png')] hover:bg-[url('/assets/icons/admin-ra.png')] bg-cover w-9 h-9 p-2"></div>
+            </a>
+        <% end %>
     </div>
 </footer>
