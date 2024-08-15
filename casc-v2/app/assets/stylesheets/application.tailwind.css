@@ -30,7 +30,7 @@
     @font-face {
       font-family: 'Heebo';
       font-style: bold;
-      font-weight: 700;
+      font-weight: 800;
       font-display: swap;
       src: url("Heebo-ExtraBold-BF643752536fbe3.ttf");
     }
@@ -71,6 +71,10 @@
       border-color: var(--contour-grey) !important;
     }
 
+    .border-action-green {
+      border-color: var(--action-green) !important;
+    }
+
     .bg-regular {
       background-color: var(--base-bg-color) !important;
     }
@@ -83,29 +87,59 @@
       background-color: var(--highlight-bg-color-accent) !important;
     }
 
+    .format-h1 {
+      font-family: 'Ubuntu', system-ui;
+      font-style: bold;
+      font-size: 60px;
+    }
+
+    .format-h2 {
+      font-family: 'Heebo';
+      font-style: bold;
+      font-weight: 800;
+      font-size: 40px;
+    }
+
+    .format-h3 {
+      font-family: 'Heebo';
+      font-style: normal;
+      font-size: 20px;
+    }
+
+    .format-p {
+      font-family: 'UbuntuMono';
+      font-style: normal;
+      font-size: 16px;
+    }
+
     h1 {
       font-family: 'Ubuntu', system-ui;
       font-style: bold;
+      font-size: 60px;
     }
   
     h2 {
       font-family: 'Heebo';
-      font-style: bold;
+      font-style: extra-bold;
+      font-size: 40px;
     }
   
     h3 {
       font-family: 'Heebo';
       font-style: normal;
+      font-size: 20px;
     }
   
     p {
-      font-family: 'Heebo';
+      font-family: 'UbuntuMono';
       font-style: normal;
+      font-size: 16px;
     }
 
     body {
       font-family: 'UbuntuMono';
       font-style: normal;
+      font-size: 16px;
       background-color: var(--base-bg-color);
     }
   }
