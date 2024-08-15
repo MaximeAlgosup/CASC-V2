@@ -141,5 +141,6 @@
       font-style: normal;
       font-size: 16px;
       background-color: var(--base-bg-color);
+      color: var(--text-white);
     }
   }
