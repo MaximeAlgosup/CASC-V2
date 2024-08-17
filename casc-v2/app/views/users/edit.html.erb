@@ -83,19 +83,19 @@
     <div id="general" class="flex w-full" style="height: 80vh">
         <div class="flex w-full">
             <div class="flex-col bg-regular m-4 rounded-lg" style="width: 50vw">
-            <%= form_with model: @user, method: :put do |f| %>
+            <%= form_with model: @user, method: :put, class: "h-full" do |f| %>
                     <div class="flex">
                         <% if @user.pPicturePath.nil? %>
-                            <img src='/assets/icons/profile-w.png' class="w-24 h-24 rounded-full m-4 border border-white border-4 pt-2">
+                            <img src='/assets/icons/profile-w.png' class="w-24 h-24 rounded-full m-4 border border-action-green border-4 pt-2">
                         <% else %>
                             <img src="<%= @user.pPicturePath %>" class="w-24 h-24 rounded-full m-4">
                         <% end %>
-                        <div class="flex-col ml-6 mt-2">
+                        <div class="flex-col ml-6 my-2">
                             <%= f.label :name, class: "ml-2 green-text text-sm" %><br />
                             <%= f.text_field :name, autocomplete: "name", class: "w-full rounded-lg highlight-bg-accent border-none" %>
                             <%= f.label :email, class: "ml-2 green-text text-sm" %><br />
                             <%= f.email_field :email, autocomplete: "email", class: "w-full rounded-lg highlight-bg-accent border-none" %>
-                            <p class="mt-2">Joined in <%= I18n.l(@user.created_at, format: "%B")%> <%= @user.created_at.year %> </p>
+                            <p class="mt-2 meltmino-thin-text ">Joined in <%= I18n.l(@user.created_at, format: "%B")%> <%= @user.created_at.year %> </p>
                         </div>
                         <div class="ml-auto">
                             <%= f.button "Update" do%>
@@ -103,9 +103,10 @@
                             <% end %>
                         </div>       
                     </div>
-                    <div class="m-4 mt-6">
-                        <%= f.label :description, class: "ml-2 green-text text-sm" %>
-                        <%= f.text_area :description, autocomplete: "description", class: "w-full rounded-lg highlight-bg-accent border-none" %>
+                    <hr class="mx-12 my-2 border-regular"/>
+                    <%= f.label :description, class: "ml-6 green-text text-sm" %>
+                    <div class="mx-4 h-1/2">
+                        <%= f.text_area :description, autocomplete: "description", class: "w-full h-full rounded-lg highlight-bg-accent border-none overflow-scroll" %>
                     </div>
                 </div>
                 
