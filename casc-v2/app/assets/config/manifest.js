@@ -2,6 +2,7 @@
 //= link_tree ../images/logos
 //= link_tree ../images/icons
 //= link_tree ../fonts
+//= link_tree ../stylesheets .css
 //= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js

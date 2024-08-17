@@ -1,8 +1,92 @@
-<div class="flex-col border border-regular rounded-xl m-4 highlight-bg">
-    <div class="flex w-full h-fit border-b border-regular">
-        <span class="m-2"><a class="format-h3">General</a></span>
-        <span class="m-2"><a class="format-h3">Stats</a></span>
-        <span class="m-2"><a class="format-h3">Badges</a></span>
-        <span class="ml-auto  my-2 mr-4"><a class="format-h3">exit</a></span>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const generalTab = document.getElementById("general-tab");
+        const statsTab = document.getElementById("stats-tab");
+        const badgesTab = document.getElementById("badges-tab");
+
+        const general = document.getElementById("general");
+        const stats = document.getElementById("stats");
+        const badges = document.getElementById("badges");
+
+        function removeActiveClasses() {
+            generalTab.classList.remove("highlight-bg-accent");
+            generalTab.classList.remove("white-text");
+            statsTab.classList.remove("highlight-bg-accent");
+            statsTab.classList.remove("white-text");
+            badgesTab.classList.remove("highlight-bg-accent");
+            badgesTab.classList.remove("white-text");
+        }
+
+        generalTab.addEventListener("click", function() {
+            general.style.display = "flex";
+            stats.style.display = "none";
+            badges.style.display = "none";
+            removeActiveClasses();
+            generalTab.classList.add("highlight-bg-accent", "white-text");
+        });
+
+        statsTab.addEventListener("click", function() {
+            general.style.display = "none";
+            stats.style.display = "flex";
+            badges.style.display = "none";
+            removeActiveClasses();
+            statsTab.classList.add("highlight-bg-accent", "white-text");
+        });
+
+        badgesTab.addEventListener("click", function() {
+            general.style.display = "none";
+            stats.style.display = "none";
+            badges.style.display = "flex";
+            removeActiveClasses();
+            badgesTab.classList.add("highlight-bg-accent", "white-text");
+        });
+
+        generalTab.click();
+    });
+</script>
+
+
+<div class="flex-col border border-regular border-4 rounded-3xl m-8 highlight-bg">
+    <div class="flex w-full h-fit border-b border-b-4 border-regular">
+        <ul class="flex flex-wrap text-sm font-medium text-center green-text">
+            <li class="mt-2 ml-2 me-2">
+                <a 
+                    id="general-tab"
+                    href="#"
+                    class="inline-block text-lg p-2 rounded-t-2xl white-text highlight-bg-accent"
+                >General</a>
+            </li>
+            <li class="mt-2 ml-1 me-2">
+                <a 
+                    id="stats-tab"
+                    href="#"
+                    class="inline-block text-lg p-2 rounded-t-2xl hover:white-text hover:highlight-bg-accent"
+                >Stats</a>
+            </li>
+            <li class="mt-2 ml-1 me-2">
+                <a 
+                    id="badges-tab"
+                    href="#"
+                    class="inline-block text-lg p-2 rounded-t-2xl hover:white-text hover:highlight-bg-accent"
+                >Badges</a>
+            </li>
+        </ul>
+        <span class="ml-auto  my-2">
+            <%= heroicon "arrows-pointing-out", variant: :solid, options: { class: "h-8 w-8 text-gray-300 hover:text-white cursor-pointer" } %>
+        </span>
+        <span class="m-2">
+            <a href="/">
+                <%= heroicon "x-circle", variant: :solid, options: { class: "h-8 w-8 text-red-300 hover:text-red-500 cursor-pointer" } %>
+            </a>
+        </span>
+    </div>
+    <div id="general" class="flex w-full" style="height: 80vh">
+        <%= render "users/partials/tabs/general" %>
+    </div>
+    <div id="stats" class="flex w-full" style="display: none; height: 80vh">
+        <%= render "users/partials/tabs/stats" %>
+    </div>
+    <div id="badges" class="flex w-full" style="display: none; height: 80vh">
+        <%= render "users/partials/tabs/badges" %>
     </div>
 </div>

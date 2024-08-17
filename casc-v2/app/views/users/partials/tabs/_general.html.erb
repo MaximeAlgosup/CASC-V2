@@ -1,0 +1,23 @@
+<div class="flex w-full">
+    <div class="flex-col bg-regular m-4 rounded-lg" style="width: 50vw">
+        <div class="flex">
+            <% if @user.pPicturePath.nil? %>
+                <img src='/assets/icons/profile-w.png' class="w-24 h-24 rounded-full m-4 border border-white border-4 pt-2">
+            <% else %>
+                <img src="<%= @user.pPicturePath %>" class="w-24 h-24 rounded-full m-4">
+            <% end %>
+            <div class="flex-col h-24 ml-6 mt-2">
+                <h2 class="mb-1"><%= @user.name %></h2>
+                <p class=""><%= @user.email %></p>
+                <p class="">Joined in <%= I18n.l(@user.created_at, format: "%B")%> <%= @user.created_at.year %> </p>
+            </div>
+        </div>
+        <div class="m-4 mt-6">
+            <h3 class="mb-2 font-bold">About me:</h3>
+            <p>Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, "Lorem ipsum dolor sit amet...", proviennent de la section 1.10.32.</p> 
+         </div>
+    </div>
+    <div class="w-1/2 flex-col bg-regular m-4 rounded-lg">
+
+    </div>
+</div>
