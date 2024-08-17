@@ -53,11 +53,28 @@
   
     @font-face {
       font-family: 'Meltmino';
-      font-style: normal;
+      font-style: bold;
       font-weight: 500;
       font-display: swap;
       src: url("Meltmino-SemiBold.ttf");
     }
+
+    @font-face {
+      font-family: 'Meltmino';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("Meltmino-Regular.ttf");
+    }
+    
+    @font-face {
+      font-family: 'Meltmino';
+      font-style: thin;
+      font-weight: 100;
+      font-display: swap;
+      src: url("Meltmino-Thin.ttf");
+    }
+  
   
     .white-text {
       color: var(--text-white) !important;
@@ -65,6 +82,12 @@
 
     .green-text {
       color: var(--text-green) !important;
+    }
+
+    .meltmino-thin-text {
+      font-family: 'Meltmino';
+      font-style: thin;
+      font-weight: 100;
     }
 
     .border-regular {
