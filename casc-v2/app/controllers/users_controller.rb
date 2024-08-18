@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def edit
         unless current_user.id == params[:id].to_i
-            alert = "You are not authorized to view this page."
+            @alert = "You are not authorized to view this page."
             redirect_to root_path, alert: alert
         end
         @user = User.find(params[:id])
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
+            @notice = "User updated successfully."
             redirect_to user_path(@user)
         else
             render 'edit'

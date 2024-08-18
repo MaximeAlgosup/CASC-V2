@@ -1,0 +1,85 @@
+<div class="flex-col w-full overflow-scroll rounded-b-3xl">
+    <table class="w-full relative text-base text-left rtl:text-right">
+        <thead class="green-text uppercase">
+            <tr class="sticky top-0 highlight-bg-accent ">
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        type
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        title
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        date
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        content
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        author
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        edit
+                    </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center">
+                        delete
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% CascNew.all.each do |new| %>
+                <tr title="<%= new.content %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text">
+                    <td class="px-6 py-2 whitespace-nowrap">
+                        <% case new.nType %>
+                        <% when "release" %>
+                            <img src='/assets/icons/release-w.png' class="w-12 h-12 mx-2 my-auto">
+                        <% when 'success' %>
+                            <img src='/assets/icons/cup-w.png' class="w-12 h-12 mx-2 my-auto">
+                        <% when 'event' %>
+                            <img src='/assets/icons/calendar-w.png' class="w-12 h-12 mx-2 my-auto">
+                        <% when 'test' %>
+                            <img src='/assets/icons/test-w.png' class="w-12 h-12 mx-2 my-auto">
+                        <% else %>
+                            <img src='/assets/icons/news-w.png' class="w-12 h-12 mx-2 my-auto">
+                        <% end %>
+                    </td>
+                    <td class="px-6 py-2 whitespace-nowrap">
+                        <%= new.title %>
+                    </td>
+                    <td class="px-6 py-2 whitespace-nowrap">
+                        <%= new.updated_at.day %> <%= I18n.l(new.updated_at, format: "%B")%> <%= new.updated_at.year %>
+                    </td>
+                    <td class="px-6 py-2 whitespace-wrap">
+                        <%= new.content.truncate(32, separator: ' ') %>
+                    </td>
+                    <td class="px-6 py-2 whitespace-wrap">
+                        <%= new.user.name %>
+                    </td>
+                    <td class="px-6 py-2 whitespace-wrap">
+                        <%= link_to "/news/#{new.id}/edit" do %>
+                            <%= heroicon "pencil-square", variant: :solid, options: { class: "h-10 w-10 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
+                        <% end %>
+                    </td>
+                    <td class="px-6 py-2 whitespace-wrap">
+                        <%= link_to "/news/#{new.id}/destroy" do %>
+                            <%= heroicon "trash", variant: :solid, options: { class: "h-10 w-10 m-é p-é text-gray-300 hover:text-white bg-red-400 cursor-pointer rounded-lg" } %>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

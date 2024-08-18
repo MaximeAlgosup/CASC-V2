@@ -16,14 +16,14 @@
   </head>
 
   <body>
-    <% if notice %>
+    <% if @notice %>
       <div
         class="bg-yellow-100 border border-orange-500 text-orange-700 px-4 py-3 rounded relative"
         style="position: absolute; top: 1em; right: 1em; z-index: 1000; max-width: 25vw;"
         role="alert"
       >
         <span class="block sm:inline mr-8">
-          <%= notice %> test
+          <%= @notice %> test
         </span>
         <span class="absolute top-0 bottom-0 right-0 px-4 py-3 flex items-center">
           <svg
@@ -38,14 +38,14 @@
         </span>
       </div>
     <% end %>
-    <% if alert %>
+    <% if @alert %>
       <div
         class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded relative"
         style="position: absolute; top: 1em; right: 1em; z-index: 1000; max-width: 25vw;"
         role="alert"
       >
         <span class="block sm:inline mr-8">
-          <%= alert %>
+          <%= @alert %>
         </span>
         <span class="absolute top-0 bottom-0 right-0 px-4 py-3 flex items-center">
           <svg
