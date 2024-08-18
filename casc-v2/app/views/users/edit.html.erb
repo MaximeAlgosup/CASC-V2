@@ -90,6 +90,7 @@
                         <% else %>
                             <img src="<%= @user.pPicturePath %>" class="w-24 h-24 rounded-full m-4">
                         <% end %>
+                        <%= f.file_field :pPicturePath, text: "test" %>
                         <div class="flex-col ml-6 my-2">
                             <%= f.label :name, class: "ml-2 green-text text-sm" %><br />
                             <%= f.text_field :name, autocomplete: "name", class: "w-full rounded-lg highlight-bg-accent border-none" %>

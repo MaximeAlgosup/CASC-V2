@@ -1,22 +1,71 @@
-<div class="h-full w-full flex">
-    <div class="h-screen flex-col w-1/3">
-        <div class="ml-8 mr-2 my-8 h-1/3 p-4 overflow-hidden border border-regular rounded-2xl highlight-bg">
+<div class="h-screen w-full flex">
+    <div class="flex-col w-1/3 my-8 px-8" style="height: 95%">
+        <div class="h-1/3 p-4 overflow-hidden border border-regular rounded-2xl highlight-bg">
             <h2 class="font-extrabold">Welcome</h2>
             <p class="text-lg">Hi! Welcome to CASC. A way to maintaint and improve your coding skills.</p>
             <h3 class="w-full text-center mt-4 green-text">3, 2, 1, Ready!? CASC is!</h3>
             
         </div>
-        <div class="ml-8 mr-2 my-8 h-1/2 p-4 border border-regular rounded-2xl highlight-bg">
-            <h2 class="font-extrabold">Your history</h2>
-            <p class="meltmino-thin-text text-sm"> Look at your progress and see how you are doing.</p>
+        <div class="h-1/2 mt-4 border border-regular rounded-2xl highlight-bg">
+            <div class="h-1/4 p-4">
+                <h2 class="font-extrabold">Your history</h2>
+                <p class="meltmino-thin-text text-sm"> Look at your progress and see how you are doing.</p>
+            </div>
+            <div class="p-4 h-2/3 my-auto overflow-scroll">
+                <ul>
+                    <li>
+                    <% current_user.user_news.each do |new| %>
+                        <hr class="mx-12 mt-2 border-regular"/>
+                        <li title="<%= new.description %>" class="flex mt-2">
+                            <div class="flex-col h-14 px-4">
+                                <p class="green-text"><%= new.title %></p>
+                                <p class="meltmino-thin-text"><%= new.updated_at.day %> <%= I18n.l(new.updated_at, format: "%B")%> <%= new.updated_at.year %></p>
+                            </div>
+                        </li>
 
+                    <% end %>
+                    </li>
+
+                <ul>
+            </div>
         </div>
     </div>
 
-    <div class="h-screen flex-col w-2/3">
-        <div class="ml-4 mr-8 my-8 p-4 border border-regular rounded-2xl highlight-bg">
-            <h2 class="font-extrabold">What's new?</h2>
-            <p class="meltmino-thin-text text-sm">Check out the latest news and updates from CASC.</p>
+    <div class="flex-col my-8 px-8 w-2/3" style="height: 95%">
+        <div class="ml-4 p-4 border border-regular rounded-2xl highlight-bg" style="height: 85%">
+            <div style="height: 12%">
+                <h2 class="font-extrabold">What's new?</h2>
+                <p class="meltmino-thin-text text-sm">Check out the latest news and updates from CASC.</p>
+            </div>
+            <div class="mt-4 h-5/6 overflow-scroll">
+                <ul>
+                    <% CascNew.all.each do |new| %>
+                        <hr class="mx-12 mt-2 border-regular"/>
+                        <li class="flex mt-2">
+                            <div class="h-14 w-14">
+                                <% case new.nType %>
+                                <% when "release" %>
+                                    <img src='/assets/icons/release-w.png' class="w-12 h-12 mx-2 my-auto">
+                                <% when 'success' %>
+                                    <img src='/assets/icons/cup-w.png' class="w-12 h-12 mx-2 my-auto">
+                                <% when 'event' %>
+                                    <img src='/assets/icons/calendar-w.png' class="w-12 h-12 mx-2 my-auto">
+                                <% when 'test' %>
+                                    <img src='/assets/icons/test-w.png' class="w-12 h-12 mx-2 my-auto">
+                                <% else %>
+                                    <img src='/assets/icons/news-w.png' class="w-12 h-12 mx-2 my-auto">
+                                <% end %>
+                            </div>
+                            <div class="flex-col h-14 px-4 w-1/6">
+                                <h3 class="green-text"><%= new.title %></h3>
+                                <p class="meltmino-thin-text"><%= new.updated_at.day %> <%= I18n.l(new.updated_at, format: "%B")%> <%= new.updated_at.year %></p>
+                            </div>
+                            <p title="<%= new.content %>" class="h-14 w-2/3 overflow-hidden"><%= new.content %></p>
+                        </li>
+
+                    <% end %>
+                <ul>
+            </div>
         </div>
     </div>
 </div>
