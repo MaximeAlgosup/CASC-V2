@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   
   get 'admin' => 'homes#admin'
 
+  resources :casc_news
+
   resources :users
 end

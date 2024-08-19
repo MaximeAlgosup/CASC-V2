@@ -1,118 +1,116 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const newsTab = document.getElementById("news-tab");
-        const eventsTab = document.getElementById("events-tab");
-        const categoriesTab = document.getElementById("categories-tab");
-        const challengesTab = document.getElementById("challenges-tab");
+  document.addEventListener("DOMContentLoaded", function() {
+      const newsTab = document.getElementById("news-tab");
+      const eventsTab = document.getElementById("events-tab");
+      const categoriesTab = document.getElementById("categories-tab");
+      const challengesTab = document.getElementById("challenges-tab");
 
-        const news = document.getElementById("news");
-        const events = document.getElementById("events");
-        const categories = document.getElementById("categories");
-        const challenges = document.getElementById("challenges");
+      const news = document.getElementById("news");
+      const events = document.getElementById("events");
+      const categories = document.getElementById("categories");
+      const challenges = document.getElementById("challenges");
 
-        function removeActiveClasses() {
-            newsTab.classList.remove("highlight-bg-accent");
-            newsTab.classList.remove("white-text");
-            eventsTab.classList.remove("highlight-bg-accent");
-            eventsTab.classList.remove("white-text");
-            categoriesTab.classList.remove("highlight-bg-accent");
-            categoriesTab.classList.remove("white-text");   
-            challengesTab.classList.remove("highlight-bg-accent");
-            challengesTab.classList.remove("white-text");
-        }
+      function removeActiveClasses() {
+          newsTab.classList.remove("highlight-bg-accent");
+          newsTab.classList.remove("white-text");
+          eventsTab.classList.remove("highlight-bg-accent");
+          eventsTab.classList.remove("white-text");
+          categoriesTab.classList.remove("highlight-bg-accent");
+          categoriesTab.classList.remove("white-text");
+          challengesTab.classList.remove("highlight-bg-accent");
+          challengesTab.classList.remove("white-text");
+      }
 
-        newsTab.addEventListener("click", function() {
-            news.style.display = "flex";
-            events.style.display = "none";
-            categories.style.display = "none";
-            challenges.style.display = "none";
-            removeActiveClasses();
-            newsTab.classList.add("highlight-bg-accent", "white-text");
-        });
+      newsTab.addEventListener("click", function() {
+          news.style.display = "flex";
+          events.style.display = "none";
+          categories.style.display = "none";
+          challenges.style.display = "none";
+          removeActiveClasses();
+          newsTab.classList.add("highlight-bg-accent", "white-text");
+      });
 
-        eventsTab.addEventListener("click", function() {
-            news.style.display = "none";
-            events.style.display = "flex";
-            categories.style.display = "none";
-            challenges.style.display = "none";
-            removeActiveClasses();
-            eventsTab.classList.add("highlight-bg-accent", "white-text");
-        });
+      eventsTab.addEventListener("click", function() {
+          news.style.display = "none";
+          events.style.display = "flex";
+          categories.style.display = "none";
+          challenges.style.display = "none";
+          removeActiveClasses();
+          eventsTab.classList.add("highlight-bg-accent", "white-text");
+      });
 
-        categoriesTab.addEventListener("click", function() {
-            news.style.display = "none";
-            events.style.display = "none";
-            categories.style.display = "flex";
-            challenges.style.display = "none";
-            removeActiveClasses();
-            categoriesTab.classList.add("highlight-bg-accent", "white-text");
-        }); 
-        
-        challengesTab.addEventListener("click", function() {
-            news.style.display = "none";
-            events.style.display = "none";
-            categories.style.display = "none";
-            challenges.style.display = "flex";
-            removeActiveClasses();
-            challengesTab.classList.add("highlight-bg-accent", "white-text");
-        });
+      categoriesTab.addEventListener("click", function() {
+          news.style.display = "none";
+          events.style.display = "none";
+          categories.style.display = "flex";
+          challenges.style.display = "none";
+          removeActiveClasses();
+          categoriesTab.classList.add("highlight-bg-accent", "white-text");
+      });
 
-        newsTab.click();
-    });
+      challengesTab.addEventListener("click", function() {
+          news.style.display = "none";
+          events.style.display = "none";
+          categories.style.display = "none";
+          challenges.style.display = "flex";
+          removeActiveClasses();
+          challengesTab.classList.add("highlight-bg-accent", "white-text");
+      });
+
+      newsTab.click();
+  });
 </script>
-
-
-<div class="flex-col border border-regular border-4 rounded-3xl mt-8 mx-12 highlight-bg">
-    <div class="flex w-full h-fit border-b border-b-4 border-regular">
-        <ul class="flex flex-wrap text-sm font-medium text-center green-text">
-            <li class="mt-2 ml-2 me-2">
-                <a 
+<div class="flex-col border border-regular border-4 rounded-3xl mt-4 mx-6 highlight-bg">
+  <div class="flex w-full h-fit border-b border-b-4 border-regular">
+    <ul class="flex flex-wrap text-sm font-medium text-center green-text">
+      <li class="mt-2 ml-2 me-2">
+        <a 
                     id="news-tab"
                     href="#"
                     class="inline-block text-lg p-2 rounded-t-2xl white-text highlight-bg-accent"
                 >Release notes</a>
-            </li>
-            <li class="mt-2 ml-1 me-2">
-                <a 
+      </li>
+      <li class="mt-2 ml-1 me-2">
+        <a 
                     id="events-tab"
                     href="#"
                     class="inline-block text-lg p-2 rounded-t-2xl hover:white-text hover:highlight-bg-accent"
                 >Events</a>
-            </li>
-            <li class="mt-2 ml-1 me-2">
-                <a 
+      </li>
+      <li class="mt-2 ml-1 me-2">
+        <a 
                     id="categories-tab"
                     href="#"
                     class="inline-block text-lg p-2 rounded-t-2xl hover:white-text hover:highlight-bg-accent"
                 >Categories</a>
-            </li>
-            <li class="mt-2 ml-1 me-2">
-                <a 
+      </li>
+      <li class="mt-2 ml-1 me-2">
+        <a 
                     id="challenges-tab"
                     href="#"
                     class="inline-block text-lg p-2 rounded-t-2xl hover:white-text hover:highlight-bg-accent"
                 >Challenges</a>
-            </li>
-        </ul>
-        <span class="ml-auto  my-2">
-            <%= heroicon "arrows-pointing-out", variant: :solid, options: { class: "h-8 w-8 text-gray-300 hover:text-white cursor-pointer" } %>
-        </span>
-        <span class="m-2">
-            <a href="/">
-                <%= heroicon "x-circle", variant: :solid, options: { class: "h-8 w-8 text-red-300 hover:text-red-500 cursor-pointer" } %>
-            </a>
-        </span>
-    </div>
-    <div id="news" class="flex w-full" style="height: 80vh">
-        <%= render 'homes/partials/tabs/news' %>
-    </div>
-    <div id="events" class="flex w-full" style="display: none; height: 80vh">
-        <h1> Events </h1>
-    </div>
-    <div id="categories" class="flex w-full" style="display: none; height: 80vh">
-        <h1> Categories </h1>
-    </div>
-    <div id="challenges" class="flex w-full" style="display: none; height: 80vh">
-        <h1> Challenges </h1>
-    </div>
+      </li>
+    </ul>
+    <span class="ml-auto  my-2">
+      <%= heroicon "arrows-pointing-out", variant: :solid, options: { class: "h-8 w-8 text-gray-300 hover:text-white cursor-pointer" } %>
+    </span>
+    <span class="m-2">
+      <a href="/">
+        <%= heroicon "x-circle", variant: :solid, options: { class: "h-8 w-8 text-red-300 hover:text-red-500 cursor-pointer" } %>
+      </a>
+    </span>
+  </div>
+  <div id="news" class="flex w-full" style="height: 80vh">
+    <%= render 'homes/partials/tabs/news' %>
+  </div>
+  <div id="events" class="flex w-full" style="display: none; height: 80vh">
+    <h1> Events </h1>
+  </div>
+  <div id="categories" class="flex w-full" style="display: none; height: 80vh">
+    <h1> Categories </h1>
+  </div>
+  <div id="challenges" class="flex w-full" style="display: none; height: 80vh">
+    <h1> Challenges </h1>
+  </div>
 </div>
