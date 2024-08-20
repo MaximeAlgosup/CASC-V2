@@ -40,6 +40,11 @@
           </th>
           <th scope="col" class="px-6 py-3">
             <div class="flex items-center">
+              show
+            </div>
+          </th>
+          <th scope="col" class="px-6 py-3">
+            <div class="flex items-center">
               edit
             </div>
           </th>
@@ -54,39 +59,34 @@
         <% CascNew.all.each do |new| %>
           <tr title="<%= new.content %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text">
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= link_to "/casc_news/#{new.id}" do %>
-                <% case new.nType %>
-                <% when "release" %>
-                  <img src='/assets/icons/release-w.png' class="w-6 h-6 mx-2 my-auto">
-                <% when 'success' %>
-                  <img src='/assets/icons/cup-w.png' class="w-6 h-6 mx-2 my-auto">
-                <% when 'event' %>
-                  <img src='/assets/icons/calendar-w.png' class="w-6 h-6 mx-2 my-auto">
-                <% when 'test' %>
-                  <img src='/assets/icons/test-w.png' class="w-6 h-6 mx-2 my-auto">
-                <% else %>
-                  <img src='/assets/icons/news-w.png' class="w-6 h-6 mx-2 my-auto">
-                <% end %>
+              <% case new.nType %>
+              <% when "release" %>
+                <img src='/assets/icons/release-w.png' class="w-6 h-6 mx-2 my-auto">
+              <% when 'success' %>
+                <img src='/assets/icons/cup-w.png' class="w-6 h-6 mx-2 my-auto">
+              <% when 'event' %>
+                <img src='/assets/icons/calendar-w.png' class="w-6 h-6 mx-2 my-auto">
+              <% when 'test' %>
+                <img src='/assets/icons/test-w.png' class="w-6 h-6 mx-2 my-auto">
+              <% else %>
+                <img src='/assets/icons/news-w.png' class="w-6 h-6 mx-2 my-auto">
               <% end %>
             </td>
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= link_to "/casc_news/#{new.id}" do %>
-                <%= new.title %>
-              <% end %>
+              <%= new.title %>
             </td>
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= link_to "/casc_news/#{new.id}" do %>
-                <%= new.updated_at.day %> <%= I18n.l(new.updated_at, format: "%B")%> <%= new.updated_at.year %>
-              <% end %>
+              <%= new.updated_at.day %> <%= I18n.l(new.updated_at, format: "%B")%> <%= new.updated_at.year %>
+            </td>
+            <td class="px-4 py-1 whitespace-wrap">
+              <%= new.content.truncate(64, separator: ' ') %>
+            </td>
+            <td class="px-4 py-1 whitespace-wrap">
+              <%= new.user.name %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
               <%= link_to "/casc_news/#{new.id}" do %>
-                <%= new.content.truncate(64, separator: ' ') %>
-              <% end %>
-            </td>
-            <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to "/users/#{new.user.id}" do %>
-                <%= new.user.name %>
+                <%= heroicon "eye", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
               <% end %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
