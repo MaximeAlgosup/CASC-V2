@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   get 'admin' => 'homes#admin'
 
-  get 'casc_news', to: 'casc_news#index'
+  get 'casc_news', to: 'homes#admin'
   get 'casc_news/:id/edit', to: 'casc_news#edit'
   get 'casc_news/new', to: 'casc_news#new'
   post 'casc_news', to: 'casc_news#create'

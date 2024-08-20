@@ -1,19 +1,24 @@
 class CascNewsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
+
+    def index
+    end
+
     def show
         @casc_news = CascNew.find(params[:id])
     end
 
     def new
         @casc_news = CascNew.new
-        puts @casc_news.inspect
     end
     
 
     def create
+        puts casc_news_params.inspect
         @casc_news = CascNew.new(casc_news_params)
         @casc_news.user = current_user
         if @casc_news.save
-            redirect_to root_path
+            redirect_to casc_news_path
         else
             render 'new'
         end
@@ -30,6 +35,7 @@ class CascNewsController < ApplicationController
     def update
         @casc_news = CascNew.find(params[:id])
         if @casc_news.update(casc_news_params)
+            @casc_news.user = current_user
             redirect_to casc_news_path(@casc_news)
         else
             render 'edit'
@@ -42,10 +48,10 @@ class CascNewsController < ApplicationController
         
         if current_user.isAdmin
             @casc_news.destroy
-            redirect_to "#{root_path}#{oldPath}"
+            redirect_to casc_news_path
         else
             alert = "You are not authorized to delete this news."
-            redirect_to "#{root_path}#{oldPath}", alert: alert
+            redirect_to casc_news_path, alert: alert
         end
     end
 
