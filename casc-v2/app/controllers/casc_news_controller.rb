@@ -1,18 +1,19 @@
 class CascNewsController < ApplicationController
-    
     def show
         @casc_news = CascNew.find(params[:id])
     end
 
     def new
         @casc_news = CascNew.new
+        puts @casc_news.inspect
     end
+    
 
     def create
         @casc_news = CascNew.new(casc_news_params)
         @casc_news.user = current_user
         if @casc_news.save
-            redirect_to casc_news_path(@casc_news)
+            redirect_to root_path
         else
             render 'new'
         end
@@ -51,6 +52,6 @@ class CascNewsController < ApplicationController
     private
 
     def casc_news_params
-        params.require(:casc_news).permit(:title, :content, :nType, )
+        params.require(:casc_new).permit(:title, :content, :nType, )
     end
 end

@@ -4,7 +4,7 @@
       Total rows: <%= CascNew.all.count %>
     </span>
     <span title="Add a news" class="ml-auto">
-      <%= link_to "/casc_news/new" do %>
+      <%= link_to casc_news_new_path() do %>
         <%= heroicon "plus", variant: :solid, options: { class: "h-6 w-6 m-1 text-gray-300 hover:text-white bg-lime-600 cursor-pointer rounded-lg" } %>
       <% end %>
     </span>
