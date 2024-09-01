@@ -14,7 +14,6 @@ class CascNewsController < ApplicationController
     
 
     def create
-        puts casc_news_params.inspect
         @casc_news = CascNew.new(casc_news_params)
         @casc_news.user = current_user
         if @casc_news.save

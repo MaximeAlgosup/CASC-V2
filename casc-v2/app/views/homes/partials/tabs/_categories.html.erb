@@ -1,10 +1,10 @@
 <div class="flex-col h-full w-full">
   <div class="flex py-auto px-4" style="height: 5vh">
     <span>
-      Total rows: <%= CascNew.all.count %>
+      Total rows: <%= Category.all.count %>
     </span>
-    <span title="Add a news" class="ml-auto">
-      <%= link_to new_casc_news_path() do %>
+    <span title="Add a category" class="ml-auto">
+      <%= link_to new_category_path() do %>
         <%= heroicon "plus", variant: :solid, options: { class: "h-6 w-6 m-1 text-gray-300 hover:text-white bg-lime-600 cursor-pointer rounded-lg" } %>
       <% end %>
     </span>
@@ -15,27 +15,17 @@
         <tr class="sticky top-0 highlight-bg-accent ">
           <th scope="col" class="px-6 py-3">
             <div class="flex items-center">
-              type
-            </div>
-          </th>
-          <th scope="col" class="px-6 py-3">
-            <div class="flex items-center">
               title
             </div>
           </th>
           <th scope="col" class="px-6 py-3">
             <div class="flex items-center">
-              date
+              creation date
             </div>
           </th>
           <th scope="col" class="px-6 py-3">
             <div class="flex items-center">
-              content
-            </div>
-          </th>
-          <th scope="col" class="px-6 py-3">
-            <div class="flex items-center">
-              author
+              description
             </div>
           </th>
           <th scope="col" class="px-6 py-3">
@@ -56,46 +46,29 @@
         </tr>
       </thead>
       <tbody class="text-sm">
-        <% CascNew.all.each do |new| %>
-          <tr title="<%= new.content %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text">
+        <% Category.all.each do |categ| %>
+          <tr title="<%= categ.description %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text">
             <td class="px-4 py-1 whitespace-nowrap">
-              <% case new.nType %>
-              <% when "release" %>
-                <img src='/assets/icons/release-w.png' class="w-6 h-6 mx-2 my-auto">
-              <% when 'success' %>
-                <img src='/assets/icons/cup-w.png' class="w-6 h-6 mx-2 my-auto">
-              <% when 'event' %>
-                <img src='/assets/icons/calendar-w.png' class="w-6 h-6 mx-2 my-auto">
-              <% when 'test' %>
-                <img src='/assets/icons/test-w.png' class="w-6 h-6 mx-2 my-auto">
-              <% else %>
-                <img src='/assets/icons/news-w.png' class="w-6 h-6 mx-2 my-auto">
-              <% end %>
+              <%= categ.title %>
             </td>
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= new.title %>
-            </td>
-            <td class="px-4 py-1 whitespace-nowrap">
-              <%= new.updated_at.day %> <%= I18n.l(new.updated_at, format: "%B")%> <%= new.updated_at.year %>
+              <%= categ.updated_at.day %> <%= I18n.l(categ.updated_at, format: "%B")%> <%= categ.updated_at.year %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= new.content.truncate(64, separator: ' ') %>
+              <%= categ.description.truncate(64, separator: ' ') %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= new.user.name %>
-            </td>
-            <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to casc_new_path(new.id) do %>
+              <%= link_to category_path(categ.id) do %>
                 <%= heroicon "eye", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
               <% end %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to edit_casc_news_path(new.id) do %>
+              <%= link_to edit_category_path(categ.id) do %>
                 <%= heroicon "pencil-square", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
               <% end %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= button_to casc_news_path(new), method: :delete, params: {id: new.id, path: "admin"} do %>
+              <%= button_to casc_news_path(categ), method: :delete, params: {id: categ.id, path: "admin"} do %>
                 <%= heroicon "trash", variant: :solid, options: { class: "h-6 w-6 m-1 p-1 text-gray-300 hover:text-white bg-red-400 cursor-pointer rounded-lg" } %>
               <% end %>
             </td>
