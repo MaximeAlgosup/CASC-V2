@@ -7,9 +7,8 @@
   <hr class="mx-8 border-regular">
   <div class="mx-auto my-4" style="width: 80%">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="w-full my-2">
-        <%= f.label :email, class: "green-text text-sm" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full rounded-lg highlight-bg-accent border-none" %>
+      <div class="w-full flex my-auto">
+        <%= emailField(f, :email, "Email", resource) %>
       </div>
 
       <div class="w-full my-2">
