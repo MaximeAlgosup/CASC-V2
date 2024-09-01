@@ -79,7 +79,7 @@ module FormComponentHelper
             end
         else
             options[:labelClass] = "ml-6 green-text text-sm"
-            options[:fieldClass] = "w-full rounded-lg highlight-bg-accent h-64 overflow-scroll"
+            options[:fieldClass] = "w-full rounded-lg highlight-bg-accent h-64 overflow-scroll resize-none"
         end
         if object.errors[field].any?
             options[:fieldClass] = options[:fieldClass] + " border border-red-500 text-red-500"
@@ -114,6 +114,19 @@ module FormComponentHelper
         end
         render partial: "partials/form_components/select_field", locals: { form: form, field: field, title: title, object: object, choices: choices, value: value, disabled: disabled, options: options } 
     end
+
+    def linkButton(title, path, custom = false, options = {})
+        if custom
+            if options[:buttonClass].nil?
+                options[:buttonClass] = ""
+            end
+        else
+            options[:buttonClass] = "px-8 py-2 text-center text-base border w-full rounded-lg border-action-green format-h2 hover:highlight-bg-accent hover:green-text"
+        end
+        render partial: "partials/form_components/link_button", locals: { title: title, path: path, options: options }
+    end
+            
+
 
     def submitButton(form, title, custom = false, options = {})
         if custom
