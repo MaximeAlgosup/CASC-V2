@@ -1,7 +1,3 @@
-<%
-    ntypes = [ 'news', 'release', 'success', 'event', 'test' ]
-
-%>
 <div class="flex-col border border-regular border-4 rounded-3xl mt-4 mx-6 highlight-bg">
   <div class="flex w-full h-fit border-b border-b-4 border-regular">
     <h2 class="w-full text-center">Create news</h2>
@@ -17,36 +13,20 @@
   <%= form_with model: @casc_news, method: :post, class: "h-full" do |f| %>
     <div class="flex p-4">
       <div class="flex-col w-1/3 mx-auto">
-        <%= f.label :title, class: "ml-6 green-text text-sm" %>
-        <div class="mx-4 w-64">
-          <%= f.text_field :title, autocomplete: "off", class: "w-full h-full rounded-lg highlight-bg-accent border-none overflow-scroll" %>
-        </div>
+        <%= textField(f, :title, "Title", @casc_news) %>
       </div>
       <div class="flex-col w-1/3 mx-auto">
-        <%= f.label :nType, "News type", class: "ml-6 green-text text-sm" %>
-        <div class="mx-4 w-64">
-          <%= f.select :nType, ntypes, {}, {class: "w-full h-full rounded-lg highlight-bg-accent border-none overflow-scroll"}%>
-        </div>
+        <%= selectField(f, :nType, "Type", @casc_news, CascNew::NEWS_TYPES) %>
       </div>
       <div class="flex-col w-1/3 mx-auto">
-        <%= f.label :user_id, "Author", class: "ml-6 green-text text-sm" %>
-        <div class="mx-4 w-64">
-          <%= f.text_field :user_id, autocomplete: "off", value: "[#{current_user.id}] - #{current_user.name}", disabled: true, class: "w-full h-full rounded-lg highlight-bg-accent border-none overflow-scroll" %>
-        </div>
+        <%= textField(f, :user_id, "Author", @casc_news, "[#{current_user.id}] - #{current_user.name}", true) %>
       </div>
     </div>
     <div class="flex p-4">
-      <div class="flex-col w-full mx-auto">
-        <%= f.label :content, "Text", class: "ml-6 green-text text-sm" %>
-        <div class="mx-4 ">
-          <%= f.text_area :content, autocomplete: "off", class: "w-full h-64 rounded-lg highlight-bg-accent border-none overflow-scroll" %>
-        </div>
-      </div>
+      <%= textArea(f, :content, "Text", @casc_news) %>
     </div>
     <div class="flex">
-      <div class="m-8 mx-auto w-32">
-        <%= f.submit "Save", class: "px-8 py-2 text-base border w-full rounded-lg border-action-green format-h2" %>
-      </div>
+      <%= submitButton(f, "Create news") %>
     </div>
   <%end%>
 </div>
