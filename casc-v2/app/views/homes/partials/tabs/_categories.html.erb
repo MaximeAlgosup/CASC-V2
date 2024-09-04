@@ -1,15 +1,13 @@
 <div class="flex-col h-full w-full">
-  <div class="flex py-auto px-4" style="height: 5vh">
-    <span>
+  <div class="flex px-4" style="height: 6vh">
+    <span class="my-auto">
       Total rows: <%= Category.all.count %>
     </span>
-    <span title="Add a category" class="ml-auto">
-      <%= link_to new_category_path() do %>
-        <%= heroicon "plus", variant: :solid, options: { class: "h-6 w-6 m-1 text-gray-300 hover:text-white bg-lime-600 cursor-pointer rounded-lg" } %>
-      <% end %>
+    <span class="ml-auto my-auto">
+      <%= addButton("Add a category", new_category_path()) %>
     </span>
   </div>
-  <div class="flex-col w-full overflow-scroll rounded-b-3xl" style="height: 75vh">
+  <div class="flex-col w-full overflow-scroll rounded-b-3xl" style="height: 74vh">
     <table class="w-full relative text-base text-left rtl:text-right">
       <thead class="green-text uppercase">
         <tr class="sticky top-0 highlight-bg-accent ">
@@ -68,9 +66,7 @@
               <% end %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= button_to casc_news_path(categ), method: :delete, params: {id: categ.id, path: "admin"} do %>
-                <%= heroicon "trash", variant: :solid, options: { class: "h-6 w-6 m-1 p-1 text-gray-300 hover:text-white bg-red-400 cursor-pointer rounded-lg" } %>
-              <% end %>
+              <%= delButton("Delete a category", casc_news_path(categ), categ) %>
             </td>
           </tr>
         <% end %>

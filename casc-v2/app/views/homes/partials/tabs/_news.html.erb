@@ -1,15 +1,13 @@
 <div class="flex-col h-full w-full">
-  <div class="flex py-auto px-4" style="height: 5vh">
-    <span>
+  <div class="flex py-auto px-4" style="height: 6vh">
+    <span class="my-auto">
       Total rows: <%= CascNew.all.count %>
     </span>
-    <span title="Add a news" class="ml-auto">
-      <%= link_to new_casc_news_path() do %>
-        <%= heroicon "plus", variant: :solid, options: { class: "h-6 w-6 m-1 text-gray-300 hover:text-white bg-lime-600 cursor-pointer rounded-lg" } %>
-      <% end %>
+    <span class="ml-auto my-auto">
+      <%= addButton("Add a new", new_casc_news_path()) %>
     </span>
   </div>
-  <div class="flex-col w-full overflow-scroll rounded-b-3xl" style="height: 75vh">
+  <div class="flex-col w-full overflow-scroll rounded-b-3xl" style="height: 74vh">
     <table class="w-full relative text-base text-left rtl:text-right">
       <thead class="green-text uppercase">
         <tr class="sticky top-0 highlight-bg-accent ">

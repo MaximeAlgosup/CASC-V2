@@ -37,7 +37,6 @@ class CategoriesController < ApplicationController
 
     def destroy
         @categories = Category.find(params["id"])
-        oldPath = params["path"]
         
         if current_user.isAdmin
             @categories.destroy

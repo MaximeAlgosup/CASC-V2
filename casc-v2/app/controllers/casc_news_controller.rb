@@ -43,7 +43,6 @@ class CascNewsController < ApplicationController
 
     def destroy
         @casc_news = CascNew.find(params["id"])
-        oldPath = params["path"]
         
         if current_user.isAdmin
             @casc_news.destroy
