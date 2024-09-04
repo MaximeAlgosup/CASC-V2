@@ -11,32 +11,27 @@
     <table class="w-full relative text-base text-left rtl:text-right">
       <thead class="green-text uppercase">
         <tr class="sticky top-0 highlight-bg-accent ">
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               title
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               creation date
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" colspan="2" class="px-4 py-3">
             <div class="flex items-center">
               description
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
-            <div class="flex items-center">
-              show
-            </div>
-          </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               edit
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               delete
             </div>
@@ -45,25 +40,18 @@
       </thead>
       <tbody class="text-sm">
         <% Category.all.each do |categ| %>
-          <tr title="<%= categ.description %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text">
+          <tr title="<%= categ.description %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text hover:green-text hover:highlight-bg-accent cursor-pointer" onclick="window.location.href='<%= category_path(categ.id) %>'">
             <td class="px-4 py-1 whitespace-nowrap">
               <%= categ.title %>
             </td>
             <td class="px-4 py-1 whitespace-nowrap">
               <%= categ.updated_at.day %> <%= I18n.l(categ.updated_at, format: "%B")%> <%= categ.updated_at.year %>
             </td>
-            <td class="px-4 py-1 whitespace-wrap">
-              <%= categ.description.truncate(64, separator: ' ') %>
+            <td colspan="2" class="px-4 py-1 whitespace-wrap">
+              <%= categ.description.truncate(96, separator: ' ') %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to category_path(categ.id) do %>
-                <%= heroicon "eye", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
-              <% end %>
-            </td>
-            <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to edit_category_path(categ.id) do %>
-                <%= heroicon "pencil-square", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
-              <% end %>
+              <%= editButton("Edit this category", edit_category_path(categ)) %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
               <%= delButton("Delete a category", casc_news_path(categ), categ) %>

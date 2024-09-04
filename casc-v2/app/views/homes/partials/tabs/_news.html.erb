@@ -16,37 +16,32 @@
               type
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               title
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               date
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               content
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               author
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
-            <div class="flex items-center">
-              show
-            </div>
-          </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               edit
             </div>
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-4 py-3">
             <div class="flex items-center">
               delete
             </div>
@@ -55,7 +50,7 @@
       </thead>
       <tbody class="text-sm">
         <% CascNew.all.each do |new| %>
-          <tr title="<%= new.content %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text">
+          <tr title="<%= new.content %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text hover:green-text hover:highlight-bg-accent cursor-pointer" onclick="window.location.href='<%= casc_new_path(new.id)%>'">
             <td class="px-4 py-1 whitespace-nowrap">
               <% case new.nType %>
               <% when "release" %>
@@ -83,19 +78,10 @@
               <%= new.user.name %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to casc_new_path(new.id) do %>
-                <%= heroicon "eye", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
-              <% end %>
+              <%= editButton("Edit this news", edit_casc_news_path(new.id)) %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= link_to edit_casc_news_path(new.id) do %>
-                <%= heroicon "pencil-square", variant: :solid, options: { class: "h-6 w-6 m-4 text-gray-600 hover:green-text cursor-pointer" } %>
-              <% end %>
-            </td>
-            <td class="px-4 py-1 whitespace-wrap">
-              <%= button_to casc_news_path(new), method: :delete, params: {id: new.id, path: "admin"} do %>
-                <%= heroicon "trash", variant: :solid, options: { class: "h-6 w-6 m-1 p-1 text-gray-300 hover:text-white bg-red-400 cursor-pointer rounded-lg" } %>
-              <% end %>
+              <%= delButton("Delete a news", casc_news_path(new), new) %>
             </td>
           </tr>
         <% end %>

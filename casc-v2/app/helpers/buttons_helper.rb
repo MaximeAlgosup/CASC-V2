@@ -21,4 +21,15 @@ module ButtonsHelper
         end
         render partial: "partials/buttons/del_button", locals: { title: title, path: path, object: object, options: options }
     end
+
+    def editButton(title, path, custom = false, options = {})
+        if custom
+            if options[:buttonClass].nil?
+                options[:buttonClass] = ""
+            end
+        else
+            options[:buttonClass] = "h-7 w-7 m-1 text-gray-600 hover:green-text cursor-pointer"
+        end
+        render partial: "partials/buttons/edit_button", locals: { title: title, path: path, options: options }
+    end
 end
