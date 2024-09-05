@@ -1,10 +1,10 @@
 <div class="flex-col h-full w-full">
   <div class="flex px-4" style="height: 6vh">
     <span class="my-auto">
-      Total rows: <%= Category.all.count %>
+      Total rows: <%= Challenge.all.count %>
     </span>
     <span class="ml-auto my-auto">
-      <%= addButton("Add a category", new_category_path()) %>
+      <%= addButton("Add a challenge", new_challenge_path()) %>
     </span>
   </div>
   <div class="flex-col w-full overflow-scroll rounded-b-3xl" style="height: 74vh">
@@ -39,22 +39,22 @@
         </tr>
       </thead>
       <tbody class="text-sm">
-        <% Category.all.each do |categ| %>
-          <tr title="<%= categ.description %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text hover:green-text hover:highlight-bg-accent cursor-pointer" onclick="window.location.href='<%= category_path(categ.id) %>'">
+        <% Challenge.all.each do |chall| %>
+          <tr title="<%= chall.description %>" class="odd:highlight-bg even:bg-regular border-b border-regular white-text hover:green-text hover:highlight-bg-accent cursor-pointer" onclick="window.location.href='<%= challenge_path(chall.id) %>'">
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= categ.title %>
+              <%= chall.title %>
             </td>
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= categ.updated_at.day %> <%= I18n.l(categ.updated_at, format: "%B")%> <%= categ.updated_at.year %>
+              <%= chall.updated_at.day %> <%= I18n.l(chall.updated_at, format: "%B")%> <%= categ.updated_at.year %>
             </td>
             <td colspan="2" class="px-4 py-1 whitespace-wrap">
-              <%= categ.description.truncate(96, separator: ' ') %>
+              <%= chall.description.truncate(96, separator: ' ') %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= editButton("Edit this category", edit_category_path(categ)) %>
+              <%= editButton("Edit this challenge", edit_challenge_path(categ)) %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= delButton("Delete a category", category_path(categ), categ) %>
+              <%= delButton("Delete a challenge", challenge_path(categ), categ) %>
             </td>
           </tr>
         <% end %>

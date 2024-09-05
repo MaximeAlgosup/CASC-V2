@@ -15,5 +15,6 @@ class HomesController < ApplicationController
                         alert = "You are not authorized to access this page."
                         redirect_to root_path
                 end
+                @currTab = params[:tab]
         end
 end

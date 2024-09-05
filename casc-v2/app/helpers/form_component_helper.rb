@@ -23,6 +23,29 @@ module FormComponentHelper
         render partial: "partials/form_components/text_field", locals: { form: form, field: field, title: title, object: object, value: value, disabled: disabled, autocomplete: autocomplete, options: options } 
     end
 
+    def numberField(form, field, title, object, value = nil, disabled = false, autocomplete = "off", custom = false, options = {})
+        if custom
+            if options[:labelClass].nil?
+                options[:labelClass] = ""
+            end
+            if options[:fieldClass].nil?
+                options[:fieldClass] = ""
+            end
+        else
+            options[:labelClass] = "ml-6 green-text text-sm"
+            options[:fieldClass] = "w-full h-full rounded-lg highlight-bg-accent overflow-scroll"
+        end
+        if object.errors[field].any?
+            options[:fieldClass] = options[:fieldClass] + " border border-red-500 text-red-500"
+        else
+            options[:fieldClass] = options[:fieldClass] + " border-none"
+        end
+        if value.nil?
+            value = object.send(field)
+        end
+        render partial: "partials/form_components/number_field", locals: { form: form, field: field, title: title, object: object, value: value, disabled: disabled, autocomplete: autocomplete, options: options } 
+    end
+
     def passwordField(form, field, title, object, value = nil, disabled = false, autocomplete = "off", custom = false, options = {})
         if custom
             if options[:labelClass].nil?

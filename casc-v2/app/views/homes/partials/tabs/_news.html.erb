@@ -4,7 +4,7 @@
       Total rows: <%= CascNew.all.count %>
     </span>
     <span class="ml-auto my-auto">
-      <%= addButton("Add a new", new_casc_news_path()) %>
+      <%= addButton("Add a new", new_casc_new_path()) %>
     </span>
   </div>
   <div class="flex-col w-full overflow-scroll rounded-b-3xl" style="height: 74vh">
@@ -78,10 +78,10 @@
               <%= new.user.name %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= editButton("Edit this news", edit_casc_news_path(new.id)) %>
+              <%= editButton("Edit this news", edit_casc_new_path(new.id)) %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= delButton("Delete a news", casc_news_path(new), new) %>
+              <%= delButton("Delete a news", casc_new_path(new), new) %>
             </td>
           </tr>
         <% end %>

@@ -1,0 +1,27 @@
+<div class="flex-col border border-regular border-4 rounded-3xl mt-4 mx-6 highlight-bg">
+  <div class="flex w-full h-fit border-b border-b-4 border-regular">
+    <h2 class="w-full text-center">Edit challenge</h2>
+    <span class="ml-auto my-2">
+      <%= heroicon "arrows-pointing-out", variant: :solid, options: { class: "h-8 w-8 text-gray-300 hover:text-white cursor-pointer" } %>
+    </span>
+    <span class="m-2">
+      <a href="/">
+        <%= heroicon "x-circle", variant: :solid, options: { class: "h-8 w-8 text-red-300 hover:text-red-500 cursor-pointer" } %>
+      </a>
+    </span>
+  </div>
+  
+  <%= form_with model: @challenge, method: :put, class: "h-full" do |f| %>
+    <div class="flex p-4">
+      <div class="flex-col w-1/3">
+        <%= textField(f, :title, "Title", @challenge) %>
+      </div>
+    </div>
+    <div class="flex p-4">
+      <%= textArea(f, :description, "Description", @challenge) %>
+    </div>
+    <div class="flex">
+      <%= submitButton(f, "Save") %>
+    </div>
+  <% end %>
+</div>
