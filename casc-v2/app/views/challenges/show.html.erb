@@ -1,7 +1,7 @@
-<div class="flex-col border border-regular border-4 rounded-3xl mt-4 mx-6 highlight-bg">
-  <div class="flex w-full h-fit border-b border-b-4 border-regular">
+<div class="flex-col border border-regular border-4 rounded-3xl mt-4 mx-6 highlight-bg" style="max-height: 85vh">
+  <div class="flex w-full h-fit border-b border-b-4 border-regular" style="max-height: 10vh">
     <h2 class="w-full text-center"><%=@challenge.title%></h2>
-    <span class="ml-auto  my-2">
+    <span class="ml-auto my-2">
       <%= heroicon "arrows-pointing-out", variant: :solid, options: { class: "h-8 w-8 text-gray-300 hover:text-white cursor-pointer" } %>
     </span>
     <span class="m-2">
@@ -10,14 +10,32 @@
       </a>
     </span>
   </div>
-  <%= form_with model: @challenge, method: :post, class: "h-full" do |f| %>
-    <div class="flex p-4">
-      <div class="flex-col w-1/3">
-        <%= textField(f, :title, "Title", @challenge, nil, true) %>
+  <div class="overflow-scroll" style="max-height: 75vh">
+    <%= form_with model: @challenge, method: :put, class: "h-full" do |f| %>
+      <div class="flex p-4">
+        <div class="flex-col w-1/3">
+          <%= textField(f, :title, "Title", @challenge, nil, true) %>
+        </div>
       </div>
-    </div>
-    <div class="flex p-4">
-      <%= textArea(f, :description, "Description", @challenge, nil, true) %>
-    </div>
-  <%end%>
+      <div class="flex p-4">
+        <div class="flex-col w-1/3">
+          <%= textField(f, :difficulty, "Difficulty", @challenge, nil, true) %>
+        </div>
+        <div class="flex-col w-1/3">
+          <%= textField(f, :points, "Points", @challenge, nil, true) %>
+        </div>
+        <div class="flex-col w-1/3">
+          <%= textField(f, :rank, "Rank", @challenge, nil, true) %>
+        </div>
+      </div>
+      <div class="flex p-4">
+        <div class="flex-col w-1/3">
+          <%= textField(f, :category, "Category", @challenge, @challenge.category.title, true) %>
+        </div>
+      </div>
+      <div class="flex p-4">
+        <%= textArea(f, :description, "Description", @challenge, nil, true) %>
+      </div>
+    <% end %>
+  </div>
 </div>

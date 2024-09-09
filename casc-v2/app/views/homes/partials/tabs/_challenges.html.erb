@@ -45,16 +45,16 @@
               <%= chall.title %>
             </td>
             <td class="px-4 py-1 whitespace-nowrap">
-              <%= chall.updated_at.day %> <%= I18n.l(chall.updated_at, format: "%B")%> <%= categ.updated_at.year %>
+              <%= chall.updated_at.day %> <%= I18n.l(chall.updated_at, format: "%B")%> <%= chall.updated_at.year %>
             </td>
             <td colspan="2" class="px-4 py-1 whitespace-wrap">
               <%= chall.description.truncate(96, separator: ' ') %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= editButton("Edit this challenge", edit_challenge_path(categ)) %>
+              <%= editButton("Edit this challenge", edit_challenge_path(chall)) %>
             </td>
             <td class="px-4 py-1 whitespace-wrap">
-              <%= delButton("Delete a challenge", challenge_path(categ), categ) %>
+              <%= delButton("Delete a challenge", challenge_path(chall), chall) %>
             </td>
           </tr>
         <% end %>

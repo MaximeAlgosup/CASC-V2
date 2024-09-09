@@ -14,6 +14,9 @@ class ChallengesController < ApplicationController
     
 
     def create
+        puts "Create challenge"
+        puts challenge_params.inspect
+        
         @challenge = Challenge.new(challenge_params)
         if @challenge.save
             redirect_to challenges_path
@@ -49,6 +52,6 @@ class ChallengesController < ApplicationController
 
     private
     def challenge_params
-        params.require(:challenge).permit(:title, :description)
+        params.require(:challenge).permit(:title, :description, :points, :rank, :difficulty, :category_id)
     end
 end
