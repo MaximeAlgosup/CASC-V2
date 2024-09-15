@@ -16,8 +16,7 @@ Rails.application.routes.draw do
 
 
 
-  get 'categories', to: redirect("admin/categories")
-  resources :categories, only: [:show, :edit, :update, :destroy, :new, :create]
+  resources :categories, only: [:index, :show, :edit, :update, :destroy, :new, :create]
 
   get 'challenges', to: redirect("admin/challenges")
   resources :challenges, only: [:show, :edit, :update, :destroy, :new, :create]

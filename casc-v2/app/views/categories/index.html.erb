@@ -1,0 +1,25 @@
+<div class="flex-col border border-regular border-4 rounded-3xl mt-4 mx-6 highlight-bg">
+  <div class="flex w-full h-fit border-b border-b-4 border-regular">
+    <h2 class="w-full text-center">Choose your category</h2>
+    <span class="ml-auto my-2">
+      <%= heroicon "arrows-pointing-out", variant: :solid, options: { class: "h-8 w-8 text-gray-300 hover:text-white cursor-pointer" } %>
+    </span>
+    <span class="m-2">
+      <a href="/">
+        <%= heroicon "x-circle", variant: :solid, options: { class: "h-8 w-8 text-red-300 hover:text-red-500 cursor-pointer" } %>
+      </a>
+    </span>
+  </div>
+  <div class="grid gap-4 p-4 rounded-lg grid-cols-4 overflow-scroll" style="height: 74vh">
+      <% @categories.each do |categ| %>
+        <div class="flex-col items-center justify-center bg-regular rounded-lg p-4 text">
+            <div class="white-text text-center w-full overflow-hidden">
+                <p class="format-h2"><%= categ.title %></p>
+            </div>
+            <div class="white-text text-center w-full overflow-hidden" style="height: 15vh">
+                <p class="format-p"><%= categ.description %></p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+</div>
