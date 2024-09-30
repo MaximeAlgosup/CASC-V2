@@ -17,7 +17,11 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update(user_params)
+        uploaded_file = params[:user][:pPicturePath]
+        new_file_path = User.move_and_save_image(uploaded_file)
+        @user.pPicturePath = new_file_path
+
+        if @user.update(user_params) && @user.valid?
             @notice = "User updated successfully."
             redirect_to user_path(@user)
         else
