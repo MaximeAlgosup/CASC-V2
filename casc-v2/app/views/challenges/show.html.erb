@@ -36,6 +36,36 @@
       <div class="flex p-4">
         <%= textArea(f, :description, "Description", @challenge, nil, true) %>
       </div>
+      <div class="flex py-4 px-8">
+        <table class="w-full relative text-base text-left rtl:text-right ">
+          <thead class="green-text uppercase ">
+            <tr class="highlight-bg-accent rounded-md">
+              <th scope="col" class="px-4 py-3">
+                <div class="flex items-center">
+                  title
+                </div>
+              </th>
+              <th scope="col" colspan="2" class="px-4 py-3">
+                <div class="flex items-center">
+                  file
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <%= f.fields_for :documentations do |doc_form| %>
+              <tr class="odd:highlight-bg even:bg-regular border-b border-regular">
+                <td class="px-4 py-1 whitespace-nowrap">
+                  <%= doc_form.text_field :title, class: " rounded-lg highlight-bg-accent overflow-scroll border-none", placeholder: "Title", disabled: true %>
+                </td>
+                <td class="px-4 py-1 whitespace-nowrap">
+                  <%= doc_form.file_field :path, class: "border border-regular text-black border-2 rounded-md p-2" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     <% end %>
   </div>
 </div>

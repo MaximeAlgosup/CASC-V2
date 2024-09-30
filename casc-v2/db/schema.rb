@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_18_082547) do
-  create_table "cascNews", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_09_30_171452) do
+  create_table "casc_news", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "type"
+    t.string "nType"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,13 +55,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_082547) do
   end
 
   create_table "documentations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "challenges_id", null: false
+    t.bigint "challenge_id", null: false
     t.string "title"
-    t.text "description"
     t.string "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["challenges_id"], name: "index_documentations_on_challenges_id"
+    t.index ["challenge_id"], name: "index_documentations_on_challenge_id"
   end
 
   create_table "user_challenges", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -105,11 +104,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_082547) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "cascNews", "users"
+  add_foreign_key "casc_news", "users"
   add_foreign_key "challenges", "categories"
   add_foreign_key "comments", "challenges"
   add_foreign_key "comments", "users"
-  add_foreign_key "documentations", "challenges", column: "challenges_id"
+  add_foreign_key "documentations", "challenges"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "users"
   add_foreign_key "user_news", "users"
