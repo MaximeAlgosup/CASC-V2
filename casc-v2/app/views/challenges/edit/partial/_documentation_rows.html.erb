@@ -1,0 +1,11 @@
+<tr class="odd:highlight-bg even:bg-regular border-b border-regular">
+  <td class="px-4 py-1 whitespace-nowrap">
+    <%= doc_form.text_field :title, class: "rounded-lg highlight-bg-accent overflow-scroll border-none", placeholder: "Title" %>
+  </td>
+  <td colspan="2" class="px-4 py-1 whitespace-wrap">
+    <%= doc_form.file_field :path, class: "rounded-lg highlight-bg-accent overflow-scroll border-none h-full w-full" %>
+  </td>
+  <td class="px-4 py-1 whitespace-wrap">
+    <%= heroicon "trash", variant: :solid, options: { class: "h-7 w-7 p-1 text-gray-300 hover:text-white bg-red-400 cursor-pointer rounded-lg"] } %>
+  </td>
+</tr>

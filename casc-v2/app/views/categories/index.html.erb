@@ -12,12 +12,13 @@
   </div>
   <div class="grid gap-4 p-4 rounded-lg grid-cols-4 overflow-scroll" style="height: 74vh">
       <% @categories.each do |categ| %>
-        <div class="flex-col items-center justify-center bg-regular rounded-lg p-4 text">
-            <div class="white-text text-center w-full overflow-hidden">
-                <p class="format-h2"><%= categ.title %></p>
+        <div class="flex-col items-center justify-center bg-regular rounded-lg px-4 py-2 text border border-regular white-text hover:highlight-bg-accent">
+            <div class="text-center w-full overflow-hidden">
+                <p class="format-h3"><%= categ.title %></p>
             </div>
-            <div class="white-text text-center w-full overflow-hidden" style="height: 15vh">
-                <p class="format-p"><%= categ.description %></p>
+            <hr>
+            <div class="text-center w-full overflow-hidden mt-2" style="height: 15vh">
+                <p class="format-p"><%= categ.description.truncate(128, separator: ' ')  %></p>
             </div>
         </div>
       <% end %>
