@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_30_171452) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cascNews_on_user_id"
+    t.index ["user_id"], name: "index_casc_news_on_user_id"
   end
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

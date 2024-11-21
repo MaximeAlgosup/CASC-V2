@@ -10,7 +10,7 @@ export default defineConfig({
     host: '0.0.0.0',
     hmr: {
       protocol: "ws",
-      host: '192.168.0.44', // or your custom domain if you're using one
+      host: '192.168.64.4', // or your custom domain if you're using one
       port: 3000, // Ensure this matches your Vite dev server port
     },
   },
